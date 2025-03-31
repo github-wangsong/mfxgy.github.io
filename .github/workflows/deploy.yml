@@ -5,6 +5,10 @@ on:
     branches:
       - main  # 替换为你的默认分支，如 master
 
+permissions:
+  id-token: write  # 添加这一行，授予 id-token 写入权限
+  contents: read   # 通常需要读取内容权限
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
