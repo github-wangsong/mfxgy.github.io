@@ -1,0 +1,23 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]  # 监听 main 分支的推送
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4  # 检出代码
+      
+      # （可选）如果是前端项目，可能需要先构建
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+      
+      # 将指定目录（如 public 或 dist）推送到 gh-pages 分支
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # 替换为你的静态文件目录（如 dist、build）
+          publish_branch: gh-pages  # 推送到 gh-pages 分支
