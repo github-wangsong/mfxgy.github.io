@@ -7,8 +7,9 @@ on:
 
 permissions:
   id-token: write  # 添加这一行，授予 id-token 写入权限
+  pages: write
   contents: read   # 通常需要读取内容权限
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
