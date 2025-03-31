@@ -9,10 +9,10 @@ jobs:
       - uses: actions/checkout@v4  # 检出代码
       
       # （可选）如果是前端项目，可能需要先构建
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
+      # - name: Install and Build
+      #   run: |
+      #     npm install
+      #     npm run build
       
       # 将指定目录（如 public 或 dist）推送到 gh-pages 分支
       - name: Deploy
